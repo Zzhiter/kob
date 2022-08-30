@@ -31,7 +31,6 @@ export class AcGameObject {
     }
 }
 
-// 刷新函数，每秒钟执行六十次
 let last_timestamp;  // 上一次执行的时刻
 const step = timestamp => {
     for (let obj of AC_GAME_OBJECTS) {

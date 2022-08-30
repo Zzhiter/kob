@@ -1,7 +1,6 @@
 import { AcGameObject } from "./AcGameObject";
 
 export class Wall extends AcGameObject {
-    // 传一下在多少行多少列
     constructor(r, c, gamemap) {
         super();
 

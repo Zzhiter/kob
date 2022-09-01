@@ -2,7 +2,6 @@ import { AcGameObject } from "./AcGameObject";
 import { Cell } from "./Cell";
 
 export class Snake extends AcGameObject {
-    // 传入蛇的构造信息和地图
     constructor(info, gamemap) {
         super();
 
@@ -44,7 +43,6 @@ export class Snake extends AcGameObject {
 
     }
 
-    // 对外暴露的接口
     set_direction(d) {
         this.direction = d;
     }
@@ -55,7 +53,6 @@ export class Snake extends AcGameObject {
         return false;
     }
 
-    // 更新蛇的状态
     next_step() {  // 将蛇的状态变为走下一步
         const d = this.direction;
         this.next_cell = new Cell(this.cells[0].r + this.dr[d], this.cells[0].c + this.dc[d]);
@@ -66,7 +63,6 @@ export class Snake extends AcGameObject {
 
         const k = this.cells.length;
         for (let i = k; i > 0; i -- ) {
-            // 这里要用深层复制，只用=的话，会传递引用
             this.cells[i] = JSON.parse(JSON.stringify(this.cells[i - 1]));
         }
 
@@ -121,10 +117,8 @@ export class Snake extends AcGameObject {
             ctx.fillStyle = "white";
         }
 
-        // of遍历的是值，in遍历的是下标
         for (const cell of this.cells) {
             ctx.beginPath();
-            // 画一个圆弧
             ctx.arc(cell.x * L, cell.y * L, L / 2 * 0.8, 0, Math.PI * 2);
             ctx.fill();
         }

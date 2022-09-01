@@ -7,6 +7,7 @@
 <script>
 import ContentField from '../../components/ContentField.vue'
 
+// 引入之后，这里还需要暴露给template
 export default {
     components: {
         ContentField

@@ -1,6 +1,5 @@
 <template>
     <div ref="parent" class="gamemap">
-        <!-- 加上tabindex = 0 就可以获取用户操作了 -->
         <canvas ref="canvas" tabindex="0"></canvas>
     </div>
 </template>

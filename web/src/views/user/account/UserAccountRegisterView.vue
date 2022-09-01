@@ -1,15 +1,13 @@
 <template>
     <ContentField>
-        我的Bot
+        注册
     </ContentField>
 </template>
 
 <script>
 import ContentField from '../../../components/ContentField.vue'
 
-// 每个.vue文件都会导出一个对象
 export default {
-    // components表示在template区域会用到哪些组件
     components: {
         ContentField
     }

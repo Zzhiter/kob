@@ -59,7 +59,6 @@ export class GameMap extends AcGameObject {
             for (let j = 0; j < 1000; j ++ ) {
                 let r = parseInt(Math.random() * this.rows);
                 let c = parseInt(Math.random() * this.cols);
-                // 改成中心对称
                 if (g[r][c] || g[this.rows - 1 - r][this.cols - 1 - c]) continue;
                 if (r == this.rows - 2 && c == 1 || r == 1 && c == this.cols - 2)
                     continue;
@@ -84,9 +83,7 @@ export class GameMap extends AcGameObject {
         return true;
     }
 
-
     add_listening_events() {
-        // 先聚焦，出现黑框
         this.ctx.canvas.focus();
 
         const [snake0, snake1] = this.snakes;
@@ -116,11 +113,9 @@ export class GameMap extends AcGameObject {
         this.ctx.canvas.height = this.L * this.rows;
     }
 
-    // 充当一下裁判的角色
     check_ready() {  // 判断两条蛇是否都准备好下一回合了
         for (const snake of this.snakes) {
             if (snake.status !== "idle") return false;
-            // 还没接受到指令
             if (snake.direction === -1) return false;
         }
         return true;

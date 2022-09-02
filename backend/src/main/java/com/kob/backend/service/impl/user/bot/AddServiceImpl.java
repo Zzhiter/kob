@@ -33,7 +33,6 @@ public class AddServiceImpl implements AddService {
 
         Map<String, String> map = new HashMap<>();
 
-        // 又开始判断边界了
         if (title == null || title.length() == 0) {
             map.put("error_message", "标题不能为空");
             return map;
@@ -63,7 +62,6 @@ public class AddServiceImpl implements AddService {
             return map;
         }
 
-        // 代码都合法的话，就可以创建bot了
         Date now = new Date();
         Bot bot = new Bot(null, user.getId(), title, description, content, 1500, now, now);
 

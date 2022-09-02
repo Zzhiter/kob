@@ -70,7 +70,6 @@ public class UpdateServiceImpl implements UpdateService {
             return map;
         }
 
-        // 不是作者
         if (!bot.getUserId().equals(user.getId())) {
             map.put("error_message", "没有权限修改该Bot");
             return map;

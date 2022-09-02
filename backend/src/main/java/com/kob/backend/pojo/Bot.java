@@ -13,17 +13,15 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Bot {
-//    让主键自增
     @TableId(type = IdType.AUTO)
     private Integer id;
-    // 数据库里边用下划线，pojo里边用驼峰命名法
     private Integer userId;
     private String title;
     private String description;
     private String content;
     private Integer rating;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
     private Date createtime;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
     private Date modifytime;
 }

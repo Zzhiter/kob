@@ -1,6 +1,6 @@
 package com.kob.backend.service.impl.user.account;
 
-import com.kob.backend.mapper.pojo.User;
+import com.kob.backend.pojo.User;
 import com.kob.backend.service.impl.utils.UserDetailsImpl;
 import com.kob.backend.service.user.account.LoginService;
 import com.kob.backend.utils.JwtUtil;
@@ -16,13 +16,13 @@ import java.util.Map;
 @Service
 public class LoginServiceImpl implements LoginService {
 
-    @Autowired  // 注入
+    @Autowired
     private AuthenticationManager authenticationManager;
 
     @Override
     public Map<String, String> getToken(String username, String password) {
         UsernamePasswordAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken(username, password);  // 明文转换成密文
+                new UsernamePasswordAuthenticationToken(username, password);
 
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);  // 登录失败，会自动处理
         UserDetailsImpl loginUser = (UserDetailsImpl) authenticate.getPrincipal();

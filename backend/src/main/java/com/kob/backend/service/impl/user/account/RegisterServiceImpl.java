@@ -2,7 +2,7 @@ package com.kob.backend.service.impl.user.account;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.kob.backend.mapper.UserMapper;
-import com.kob.backend.mapper.pojo.User;
+import com.kob.backend.pojo.User;
 import com.kob.backend.service.user.account.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -40,6 +40,7 @@ public class RegisterServiceImpl implements RegisterService {
 
         if (password.length() == 0 || confirmedPassword.length() == 0) {
             map.put("error_message", "密码不能为空");
+            return map;
         }
 
         if (username.length() > 100) {

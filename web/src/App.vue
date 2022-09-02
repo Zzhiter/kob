@@ -4,17 +4,14 @@
 </template>
 
 <script>
-// 因为那边的Navbar是default export出去的，所以Narbar不用加{{}}
 import NavBar from './components/NavBar.vue'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap"
 
 export default {
   components: {
-    // 这里边存的其实是一个kay-value, 这里简写了
     NavBar
   },
-  
   setup() {
 
 

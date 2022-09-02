@@ -1,6 +1,6 @@
 package com.kob.backend.service.impl.utils;
 
-import com.kob.backend.mapper.pojo.User;
+import com.kob.backend.pojo.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -14,7 +14,6 @@
           <router-link :class="route_name == 'ranklist_index' ? 'nav-link active' : 'nav-link'" :to="{name: 'ranklist_index'}">排行榜</router-link>
         </li>
       </ul>
-      <!-- 如果登录成功的话就显示用户名 -->
       <ul class="navbar-nav" v-if="$store.state.user.is_login">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -30,8 +29,7 @@
           </ul>
         </li>
       </ul>
-      <!-- 否则就显示登录和注册 -->
-      <ul class="navbar-nav" v-else>
+      <ul class="navbar-nav" v-else-if="!$store.state.user.pulling_info">
         <li class="nav-item">
           <router-link class="nav-link" :to="{name: 'user_account_login' }" role="button">
             登录
@@ -53,14 +51,12 @@ import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import { useStore } from 'vuex';
 
-// template中定义完了，需要把它引出去
 export default {
     setup() {
         const store = useStore();
         const route = useRoute();
         let route_name = computed(() => route.name)
 
-        // 退出
         const logout = () => {
           store.dispatch("logout");
         }

@@ -1,6 +1,6 @@
 package com.kob.backend.service.impl.user.account;
 
-import com.kob.backend.mapper.pojo.User;
+import com.kob.backend.pojo.User;
 import com.kob.backend.service.impl.utils.UserDetailsImpl;
 import com.kob.backend.service.user.account.InfoService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class InfoServiceImpl implements InfoService { // 一般实现某个接口的话，后面协商Impl四个字母
+public class InfoServiceImpl implements InfoService {
     @Override
     public Map<String, String> getinfo() {
         UsernamePasswordAuthenticationToken authentication =

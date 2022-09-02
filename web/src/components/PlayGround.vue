@@ -7,7 +7,6 @@
 <script>
 import GameMap from './GameMap.vue'
 
-// 暴露出去
 export default {
     components: {
         GameMap,

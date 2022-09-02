@@ -1,5 +1,4 @@
 <template>
-<!-- 如果正在从云端拉取信息的话，就先不要展示 -->
     <ContentField v-if="!$store.state.user.pulling_info">
         <div class="row justify-content-md-center">
             <div class="col-3">
@@ -36,28 +35,14 @@ export default {
         let password = ref('');
         let error_message = ref('');
 
-        // 先判断一下本地有没有token
         const jwt_token = localStorage.getItem("jwt_token");
-        // 如果本地有的话
         if (jwt_token) {
-            // 调用mutation里边的函数需要用的commit
-            // 将token更新进去
             store.commit("updateToken", jwt_token);
-
-            // 然后需要验证一下是否合法
-            // 需要从云端获取用户信息，使用getInfo函数
             store.dispatch("getinfo", {
-                // 一个是成功之后的回调函数
                 success() {
-                    // 跳转到首页
                     router.push({ name: "home" });
-                    // 更新PullingInfo
-
-                    // 用的是mutation里边的函数的话，用的是commit， 同步操作在mutation里边
-                    // 用的action里边函数的话，用的是dispatch， 异步修改在action里边
                     store.commit("updatePullingInfo", false);
                 },
-                // 一个是失败的回调函数
                 error() {
                     store.commit("updatePullingInfo", false);
                 }
